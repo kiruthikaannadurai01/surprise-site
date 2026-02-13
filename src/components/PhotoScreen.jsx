@@ -46,7 +46,7 @@ export default function PhotoScreen({ onNext }) {
         </h1>
 
         <motion.p
-          className="text-xl md:text-2xl text-purple-300"
+          className="text-lg md:text-2xl text-purple-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
@@ -63,11 +63,21 @@ export default function PhotoScreen({ onNext }) {
         transition={{ delay: 1.2, duration: 1 }}
       >
         <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
+          spaceBetween={20}
           loop={true}
           pagination={{ clickable: true }}
           modules={[Pagination]}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
           className="py-10"
         >
           {photos.map((photo) => (
@@ -78,7 +88,7 @@ export default function PhotoScreen({ onNext }) {
                   alt="Memory"
                   width={400}
                   height={400}
-                  className="w-full h-[400px] object-cover"
+                  className="w-full h-[300px] md:h-[400px] object-cover"
                 />
               </div>
             </SwiperSlide>
@@ -103,7 +113,7 @@ export default function PhotoScreen({ onNext }) {
 
         <button
           onClick={onNext}
-          className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center mx-auto"
+          className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center mx-auto"
         >
           <Heart className="w-5 h-5 mr-2 fill-current" />
           See the Message
