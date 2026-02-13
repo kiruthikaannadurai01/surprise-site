@@ -72,12 +72,13 @@ export default function PhotoScreen({ onNext }) {
         >
           {photos.map((photo) => (
             <SwiperSlide key={photo.id}>
-              <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src={photo.src}
                   alt="Memory"
-                  fill
-                  className="object-cover"
+                  width={400}
+                  height={400}
+                  className="w-full h-[400px] object-cover"
                 />
               </div>
             </SwiperSlide>
